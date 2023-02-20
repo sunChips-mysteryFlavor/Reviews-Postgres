@@ -1,4 +1,5 @@
-const {reviews} = require('../../sequelize/models');
+const {reviews, reviews_photo} = require('../../sequelize/models');
+const Sequelize = require('sequelize');
 
 module.exports = {
   queryReviews: (query) => {
@@ -7,8 +8,14 @@ module.exports = {
 
     return reviews.findAll({
       where: { product_id: query.product_id },
-      limit: count,
-      offset: page*count
+      include: reviews_photo
+      // include: [{
+      //   model: reviews_photo,
+      //   as: 'reviews_photo',
+      //   where: {review_id: Sequelize.col('reviews_photos.review_id')},
+      //   attributes: ['photo_id', 'url'],
+      //   required: false
+      // }],
     });
   },
   insertReview: (data) => {
@@ -22,6 +29,7 @@ module.exports = {
       date: data.date,
       reviewer_name: data.name, // possible error here
       helpfulness: data.helpfulness,
+      // photo: data.photo,
     })
   },
   incrementReviewHelfulness: (review_id) => {
