@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
       allowNull: false
-    }
+    },
     characteristic_id: {
       type: DataTypes.INTEGER,
     },
@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'characteristics_values',
+    timestamps: false,
   });
   return characteristics_values;
 };

@@ -4,7 +4,10 @@
     "password": null,
     "database": "reviews_meta",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+      "underscored": true
+    }
   },
   "test": {
     "username": "eriknewland",
@@ -18,6 +21,9 @@
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "underscored": true
+    }
   }
 }

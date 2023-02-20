@@ -4,7 +4,10 @@
     "password": null,
     "database": "reviews",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "define": {
+      "underscored": true
+    }
   },
   "test": {
     "username": "root",
@@ -15,6 +18,9 @@
   },
   "production": {
     "url": "process.env.DATABASE_URL",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "underscored": true
+    }
   }
 }

@@ -25,10 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     ratings_count_4: DataTypes.INTEGER,
     ratings_count_5: DataTypes.INTEGER,
     recommended_true: DataTypes.INTEGER,
-    recommended_false: DataTypes.INTEGER
+    recommended_false: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'reviews_meta',
+    timestamps: false,
   });
   return reviews_meta;
 };

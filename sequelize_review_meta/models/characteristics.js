@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       // TEMPLATE FOR FOREIGN KEY PARENT!
-      this.hasMany(models.characteristics_title, { foreignKey: 'characteristic_id' })
+      this.hasMany(models.characteristics_values, { foreignKey: 'characteristic_id' })
       this.belongsTo(models.reviews_meta, { foreignKey: 'product_id' })
     }
   }
@@ -27,6 +27,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'characteristics',
+    timestamps: false,
   });
   return characteristics;
 };
