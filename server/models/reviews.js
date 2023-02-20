@@ -13,15 +13,15 @@ module.exports = {
   },
   insertReview: (data) => {
     return reviews.create({
-      review_id:data.review_id,
-      product_id:data.product_id,
-      rating:data.rating,
-      summary:data.summary,
-      response:data.response,
-      body:data.body,
-      date:data.date,
-      reviewer_name:data.name, // possible error here
-      helpfulness:data.helpfulness,
+      product_id: data.product_id,
+      rating: data.rating,
+      summary: data.summary,
+      recommend: data.recommend,
+      response: data.response,
+      body: data.body,
+      date: data.date,
+      reviewer_name: data.name, // possible error here
+      helpfulness: data.helpfulness,
     })
   },
   incrementReviewHelfulness: (review_id) => {
@@ -31,7 +31,7 @@ module.exports = {
     })
   },
   toggleReported: (review_id) => {
-    return answers.update({reported: true},{
+    return reviews.destroy({
       where:{review_id:review_id}
     })
   },

@@ -11,7 +11,8 @@ module.exports = {
   },
 
   post: (req, res) => {
-    reviews.insertReview(req.body)
+    // console.log(req)
+    reviews.insertReview(req.query)
       .then(() => {
         res.status(201).send();
       }).catch((error) => {
@@ -20,7 +21,8 @@ module.exports = {
   },
 
   put: (req, res) => {
-    reviews.incrementReviewHelfulness(req.params.answer_id)
+    // console.log(req)
+   reviews.incrementReviewHelfulness(req.params.review_id)
       .then(() => {
         res.status(204).send();
       }).catch((error) => {
@@ -29,7 +31,7 @@ module.exports = {
   },
 
   remove: (req, res) => {
-    reviews.toggleReported(req.params.answer_id)
+    reviews.toggleReported(req.params.review_id)
       .then(() => {
         res.status(204).send();
       }).catch((error) => {
