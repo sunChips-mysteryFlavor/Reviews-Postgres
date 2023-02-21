@@ -10,10 +10,13 @@ module.exports = {
       where: { product_id: query.product_id },
       include: [{
         model: reviews_photo,
-        attributes: ['photo_id', 'url']
+        attributes: ['photo_id', 'url'],
+        order: [["photo_id", "DESC"]],
+        required: true,
       }],
       limit: count,
       offset: page*count,
+      order: [["review_id", "DESC"]],
     });
   },
   insertReview: (data) => {
