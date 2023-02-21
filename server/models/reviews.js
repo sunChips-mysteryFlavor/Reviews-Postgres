@@ -8,16 +8,12 @@ module.exports = {
 
     return reviews.findAll({
       where: { product_id: query.product_id },
-      include: reviews_photo,
+      include: [{
+        model: reviews_photo,
+        attributes: ['photo_id', 'url']
+      }],
       limit: count,
       offset: page*count,
-      // include: [{
-      //   model: reviews_photo,
-      //   as: 'reviews_photo',
-      //   where: {review_id: Sequelize.col('reviews_photos.review_id')},
-      //   attributes: ['photo_id', 'url'],
-      //   required: false
-      // }],
     });
   },
   insertReview: (data) => {

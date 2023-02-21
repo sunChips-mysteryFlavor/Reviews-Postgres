@@ -12,6 +12,6 @@ export const options = {
 const rando = Math.round(Math.random() * 100000)
 
 export default function () {
-  http.get(`http://localhost:3020/reviews?product_id=${rando}`);
+  http.get('http://localhost:3020/reviews?product_id=100');
   sleep(1);
 }
