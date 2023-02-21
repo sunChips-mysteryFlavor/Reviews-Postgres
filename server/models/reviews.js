@@ -8,7 +8,9 @@ module.exports = {
 
     return reviews.findAll({
       where: { product_id: query.product_id },
-      include: reviews_photo
+      include: reviews_photo,
+      limit: count,
+      offset: page*count,
       // include: [{
       //   model: reviews_photo,
       //   as: 'reviews_photo',
