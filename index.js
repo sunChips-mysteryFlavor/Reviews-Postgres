@@ -4,7 +4,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const dotenv = require('dotenv').config( {path: '.env'} );
 // const ghAuth = require('./middleware/ghAuth.js');
-// const decryptKey = require('./middleware/accessTokenAuthDecrypt.js');
+const decryptKey = require('./server/middleware/accessTokenAuthDecrypt.js');
 
 const reviewsRouter = require('./server/routes.js');
 
@@ -16,12 +16,12 @@ app.use(cors());
 app.use(morgan('dev'));
 
 //Github Authorization
-// app.use(decryptKey);
+app.use(decryptKey);
 // app.use(ghAuth);
 
 // Routers
 app.use('/', reviewsRouter);
 
 
-app.listen(3020);
-console.log(`Listening at 3020`);
+app.listen(3022);
+console.log(`Listening at 3022`);

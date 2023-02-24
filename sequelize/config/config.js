@@ -1,4 +1,4 @@
-{
+module.exports = {
   "development": {
     "username": "eriknewland",
     "password": null,
@@ -17,8 +17,12 @@
     "dialect": "postgres"
   },
   "production": {
-    "url": "process.env.DATABASE_URL",
-    "dialect": "mysql",
+    "username": process.env.POSTGRES_USERNAME_PROD,
+    "password": process.env.POSTGRES_PASSWORD_PROD,
+    "database": "reviews",
+    "host": process.env.POSTGRES_DB_HOST_PROD,
+    "port": 5432,
+    "dialect": "postgres",
     "define": {
       "underscored": true
     }

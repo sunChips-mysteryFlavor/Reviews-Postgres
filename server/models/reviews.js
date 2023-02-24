@@ -11,8 +11,9 @@ module.exports = {
       include: [{
         model: reviews_photo,
         attributes: ['photo_id', 'url'],
-        order: [["photo_id", "DESC"]],
-        required: true,
+        // order: [["photo_id", "DESC"]],
+        // required: true,
+        // limit: 5,
       }],
       limit: count,
       offset: page*count,
